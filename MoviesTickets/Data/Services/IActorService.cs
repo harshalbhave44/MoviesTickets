@@ -1,13 +1,10 @@
-﻿using MoviesTickets.Models;
+﻿using MoviesTickets.Data.Base;
+using MoviesTickets.Models;
 
 namespace MoviesTickets.Data.Services
 {
-    public interface IActorService
+    public interface IActorService : IEntityBaseRepository<Actor>
     {
-        Task<IEnumerable<Actor>> GetAll();
-        Actor GetById(int id);
-        void Add(Actor actor);
-        Actor Update(int id, Actor newActor);
-        void Delete(int id);
+
     }
 }

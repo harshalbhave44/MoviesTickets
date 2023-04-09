@@ -1,40 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MoviesTickets.Data.Base;
 using MoviesTickets.Models;
 
 namespace MoviesTickets.Data.Services
 {
-    public class ActorService : IActorService
+    public class ActorService : EntityBaseRepository<Actor>, IActorService
     {
-        private readonly AppDbContext _context;
-        public ActorService(AppDbContext context)
-        {
-            _context = context;
-        }
+        public ActorService(AppDbContext context) : base(context) { }
 
-        public void Add(Actor actor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Actor>> GetAll()
-        {
-            var result = await _context.Actors.ToListAsync();
-            return result;
-        }
-
-        public Actor GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Actor Update(int id, Actor newActor)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
