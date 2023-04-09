@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MoviesTickets.Data.Services;
 
 namespace MoviesTickets.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly IActorsService _service;
+        private readonly IActorService _service;
 
-        public ActorsController(IActorsService service)
+        public ActorsController(IActorService service)
         {
             _service = service;
         }

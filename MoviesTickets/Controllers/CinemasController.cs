@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MoviesTickets.Data;
 
 namespace MoviesTickets.Controllers
 {

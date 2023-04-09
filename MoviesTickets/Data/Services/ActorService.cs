@@ -1,11 +1,12 @@
-﻿using MoviesTickets.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MoviesTickets.Models;
 
 namespace MoviesTickets.Data.Services
 {
     public class ActorService : IActorService
     {
         private readonly AppDbContext _context;
-        public ActorsService(AppDbContext context)
+        public ActorService(AppDbContext context)
         {
             _context = context;
         }

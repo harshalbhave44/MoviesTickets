@@ -1,4 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using MoviesTickets.Data;
+using MoviesTickets.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//DbContext configuration
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+
+
+
+//Services configuration
+builder.Services.AddScoped<IActorService, ActorService>();
+
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -24,4 +41,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+
+
+//Seed database
+AppDbInitializer.Seed(app);
+//AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 app.Run();

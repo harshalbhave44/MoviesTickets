@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using MoviesTickets.Data.Enums;
 using MoviesTickets.Models;
 using System;
 using System.Collections.Generic;
