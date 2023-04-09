@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MoviesTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesTickets.Models
 {
-    public class Cinema
+    public class Cinema : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +17,6 @@ namespace MoviesTickets.Models
         public string Description { get; set; }
 
         //Relationships
-        public List<Movie> Movies { get; set; }         // One cinema can have multiple movie shows
+        public List<Movie>? Movies { get; set; }         // One cinema can have multiple movie shows
     }
 }

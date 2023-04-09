@@ -12,7 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 
 //Services configuration
 builder.Services.AddScoped<IActorService, ActorService>();
-
+builder.Services.AddScoped<IProducersService, ProducersService>();
+builder.Services.AddScoped<ICinemasService, CinemasService>();
 
 
 

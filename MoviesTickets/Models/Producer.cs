@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MoviesTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesTickets.Models
 {
-    public class Producer
+    public class Producer : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -15,6 +16,6 @@ namespace MoviesTickets.Models
         public string Bio { get; set; }
 
         //Relationships
-        public List<Movie> Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }
