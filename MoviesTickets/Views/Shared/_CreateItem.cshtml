@@ -1,0 +1,11 @@
+﻿@*
+    This contains the generic code for Add New button
+    We have defined one generic view called as "Partial View"
+*@
+@model string;
+
+<div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
+    <a asp-controller="@Model" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Add New
+    </a>
+</div>

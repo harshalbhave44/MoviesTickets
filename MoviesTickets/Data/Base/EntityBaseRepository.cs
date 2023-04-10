@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MoviesTickets.Data.Base
@@ -33,6 +34,13 @@ namespace MoviesTickets.Data.Base
         {
            var result =  await _context.Set<T>().ToListAsync();
             return result;
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)   // We created duplicate of GetAllAsync because in Movie >> index.cshtml we are using attribute of Cinema class i.e. Cinema.name 
+        {
+            IQueryable<T> query = _context.Set<T>();
+            query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            return await query.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
