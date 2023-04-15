@@ -28,5 +28,12 @@ namespace MoviesTickets.Data
         public DbSet<Actor_Movie> Actors_Movies { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Producer> Producers { get; set; }
+
+        //Order and OrderItem table
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+        //ShoppingCartItem table
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MoviesTickets.Data;
+using MoviesTickets.Data.Cart;
 using MoviesTickets.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,13 @@ builder.Services.AddScoped<IActorService, ActorService>();
 builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<ICinemasService, CinemasService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
+
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+builder.Services.AddSession();
+
 
 
 
@@ -36,7 +44,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
